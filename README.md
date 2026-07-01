@@ -235,6 +235,26 @@ Future compatibility with other RK3566 devices is possible but not guaranteed.
 
 ---
 
+## Flashing
+
+The generated image can be written to a microSD card using tools compatible with Orange Pi images.
+
+The project was tested with:
+
+- **SDDiskTool v1.72** (recommended)
+
+General flashing process:
+
+1. Extract the release package.
+2. Open **SDDiskTool v1.72**.
+3. Select the OrangeTV image.
+4. Choose the target microSD card.
+5. Write the image.
+6. Insert the microSD into the Orange Pi 3B and boot the device.
+
+> **Note**
+> SDDiskTool is **not** part of this repository. Please obtain it from the official Orange Pi resources.
+
 # Philosophy
 
 This project is primarily an educational effort focused on understanding Android TV internals.

@@ -1,272 +1,196 @@
-<div align="center">
+<p align="center">
+  <img src="banner.png" alt="OrangeTV OS Banner" width="100%">
+</p>
 
-# 📺 OrangeTV OS
+<h1 align="center">🍊 OrangeTV OS</h1>
 
-### A custom Android TV firmware for Orange Pi 3B built through reverse engineering.
+<p align="center">
+Custom Android TV firmware for Orange Pi 3B (RK3566), developed through reverse engineering.
+</p>
 
-![Android](https://img.shields.io/badge/Android-11-green)
-![Platform](https://img.shields.io/badge/Platform-RK3566-blue)
-![Device](https://img.shields.io/badge/Device-Orange%20Pi%203B-orange)
-![Status](https://img.shields.io/badge/Status-Development-yellow)
-![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey)
+<p align="center">
 
-</div>
+![Android](https://img.shields.io/badge/Android-11-3DDC84?style=for-the-badge&logo=android)
+![Platform](https://img.shields.io/badge/RK3566-Orange%20Pi%203B-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Development-yellow?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
 
----
-
-# About
-
-OrangeTV OS is a custom Android TV operating system designed specifically for the Orange Pi 3B (RK3566).
-
-Unlike traditional Android TV ports, this project is **built by understanding and recreating the Android TV environment through reverse engineering**.
-
-The objective is to transform the stock Orange Pi Android firmware into a fully functional Android TV experience while maintaining compatibility with Rockchip firmware.
-
-This project focuses on understanding how Android TV works internally instead of simply copying an existing ROM.
+</p>
 
 ---
 
-# Project Goals
+# 📖 About
 
-- Build a native Android TV experience
-- Maintain Rockchip compatibility
-- Improve Google TV support
-- Modernize bundled Google Apps
-- Keep the firmware lightweight
-- Document every modification
-- Learn Android internals
+OrangeTV OS is an Android TV firmware created specifically for the **Orange Pi 3B (RK3566)**.
+
+Unlike traditional ROM ports, this project is **not based on an existing Android TV ROM**.
+
+Instead, the firmware is built by studying Google's Android TV implementation and recreating the required components through reverse engineering while adapting them to the Rockchip platform.
+
+The goal is to provide a modern Android TV experience while keeping compatibility with Orange Pi hardware.
 
 ---
 
-# Current Features
+# ✨ Features
 
 - Android 11
-- Dynamic Partitions
-- Rebuilt super.img
-- Updated Google Play Services
-- Updated Play Store
-- Updated SetupWizard
-- Updated Leanback Launcher
-- Updated Recommendations
-- Updated SSS Auth Bridge
-- TV Launcher
-- TV Recommendations
-- Root debugging support
-- Custom system images
-
----
-
-# Reverse Engineering Process
-
-Instead of porting another ROM, this project studies the Android TV firmware and reproduces its behavior.
-
-The workflow generally consists of:
-
-```
-Original Rockchip Firmware
-            │
-            ▼
- Firmware Extraction
-            │
-            ▼
- Reverse Engineering
-            │
-            ▼
- Android TV Analysis
-            │
-            ▼
- Google Apps Integration
-            │
-            ▼
- System Image Modification
-            │
-            ▼
- Dynamic Partition Rebuild
-            │
-            ▼
- Firmware Packaging
-            │
-            ▼
- Flash & Testing
-```
-
----
-
-# Development Workflow
-
-1. Extract original firmware
-2. Unpack Dynamic Partitions
-3. Analyze Android TV framework
-4. Reverse engineer Google TV components
-5. Modify framework and system
-6. Update Google Apps
-7. Rebuild ext4 images
-8. Generate new super.img
-9. Package firmware
-10. Flash to Orange Pi
-11. Debug through ADB and Serial Console
-12. Repeat
-
----
-
-# Firmware Structure
-
-```
-super.img
-├── system
-├── vendor
-├── product
-├── system_ext
-└── odm
-```
-
----
-
-# Tools Used
-
-## Android Platform Tools
-
-- adb
-- fastboot
-
-## Dynamic Partitions
-
-- lpunpack
-- lpmake
-- lpdump
-- simg2img
-- img2simg
-
-## Boot & Recovery
-
-- magiskboot
-- avbtool
-
-## Rockchip
-
-- afptool
-- rkImageMaker
-- rkdeveloptool
-
-## Reverse Engineering
-
-- apktool
-- jadx
-- aapt
-- sqlite3
-
-## Filesystem
-
-- resize2fs
-- e2fsck
-- make_ext4fs
-- losetup
-- mount
-
-## Linux Utilities
-
-- file
-- grep
-- find
-- sed
-- du
-
----
-
-# Google Components
-
-Current integrated Google packages include:
-
+- Google TV / Android TV interface
+- Dynamic Partitions support
+- RK3566 optimized
 - Google Play Services
 - Google Play Store
-- Google Services Framework
-- Google Partner Setup
-- Google Backup Transport
-- Google One Time Initializer
-- Google Ext Services
-- SetupWraith
 - Leanback Launcher
-- TV Recommendations
-- Katniss
-- SSS Auth Bridge
+- Google Assistant (Katniss)
+- Recommendations support
+- TV Provider
+- OTA-ready structure
+- Root-friendly
 
 ---
 
-# Current Issues
+# 🏗 Development Philosophy
 
-The project is still under active development.
+OrangeTV OS does **not** simply unpack an Android TV ROM and redistribute it.
 
-Known issues include:
+Development includes:
 
-- Remote Service does not respond correctly from Google TV Remote on Android phones.
-- Google TV setup process still requires additional compatibility improvements.
-- Some Google TV components expect proprietary Google hardware.
-- Further optimization of Google certification compatibility is required.
-- Additional CTS compatibility improvements are planned.
-
----
-
-# Roadmap
-
-- [x] Dynamic Partitions
-- [x] Working super.img rebuild
-- [x] Updated GApps
-- [x] Updated Play Store
-- [x] Updated Play Services
-- [x] Updated SetupWizard
-- [x] Android TV Launcher
-- [x] Google TV Components
-- [ ] Remote Service Fix
-- [ ] CTS Improvements
-- [ ] Better Google TV Compatibility
-- [ ] OTA Support
-- [ ] Build Automation
-- [ ] Documentation Expansion
+- Reverse engineering Android TV firmware
+- Framework adaptation
+- Manual partition rebuilding
+- Dynamic super image creation
+- System image reconstruction
+- Google application integration
+- Compatibility fixes for Orange Pi hardware
 
 ---
 
-# Supported Device
+# 🛠 Tools Used
 
-| Device | Status |
-|---------|--------|
-| Orange Pi 3B (RK3566) | Supported |
+During development the following tools are used:
 
-Future compatibility with other RK3566 devices is possible but not guaranteed.
-
----
-
-## Flashing
-
-The generated image can be written to a microSD card using tools compatible with Orange Pi images.
-
-The project was tested with:
-
-- **SDDiskTool v1.72** (recommended)
-
-General flashing process:
-
-1. Extract the release package.
-2. Open **SDDiskTool v1.72**.
-3. Select the OrangeTV image.
-4. Choose the target microSD card.
-5. Write the image.
-6. Insert the microSD into the Orange Pi 3B and boot the device.
-
-> **Note**
-> SDDiskTool is **not** part of this repository. Please obtain it from the official Orange Pi resources.
-
-# Philosophy
-
-This project is primarily an educational effort focused on understanding Android TV internals.
-
-Rather than porting an existing ROM, the goal is to rebuild the Android TV experience through careful analysis, reverse engineering, experimentation, and documentation.
-
-Every successful modification helps improve the understanding of Android's framework, Google TV services, and the Rockchip platform.
+- Android SDK Platform Tools
+- adb
+- fastboot
+- afptool
+- MagiskBoot
+- simg2img
+- img2simg
+- lpmake
+- lpdump
+- lpadd
+- avbtool
+- MIO-KITCHEN
+- SDDiskTool v1.72
+- ext4 utilities
+- Linux
 
 ---
 
-# License
+# 📂 Repository Structure
 
-This repository only contains development work, scripts, patches and documentation.
+```
+OrangeTV
+│
+├── docs/
+│   ├── banner.png
+│   ├── screenshots/
+│   └── architecture.md
+│
+├── scripts/
+│
+├── patches/
+│
+├── README.md
+│
+└── LICENSE
+```
 
-Android, Google TV, Android TV and Google applications remain property of their respective owners.
+---
+
+# 🚀 Flashing
+
+The generated image can be written using:
+
+- **SDDiskTool v1.72**
+
+General process:
+
+1. Download the latest release.
+2. Extract the ZIP.
+3. Open SDDiskTool.
+4. Select the OrangeTV image.
+5. Flash to a microSD.
+6. Boot the Orange Pi 3B.
+
+---
+
+# 📦 Releases
+
+Every release includes:
+
+- OrangeTV image
+- Release notes
+- Installation instructions
+
+---
+
+# ⚠ Known Issues
+
+Current issues being worked on:
+
+- Google TV Remote Service does not respond correctly from the mobile app.
+- Some Google TV components still require compatibility improvements.
+- Additional device certification work is ongoing.
+- Further optimization of Google Play integration.
+- Hardware compatibility improvements.
+
+---
+
+# 🎯 Goals
+
+- Stable Android TV experience
+- Better hardware compatibility
+- Google service compatibility
+- OTA updates
+- Improved performance
+- Easier installation
+- Open development
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+Feel free to:
+
+- Report bugs
+- Suggest improvements
+- Open Pull Requests
+- Share testing results
+
+---
+
+# 📷 Screenshots
+
+Screenshots will be added as development progresses.
+
+---
+
+# 📜 License
+
+Apache License 2.0
+
+---
+
+# 👨‍💻 Author
+
+**Erick Bernardo Pereira da Silva**
+
+GitHub
+
+https://github.com/ThisLaynOS
+
+---
+
+⭐ If you like this project, consider giving it a Star.

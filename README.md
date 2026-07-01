@@ -91,15 +91,8 @@ During development the following tools are used:
 ```
 OrangeTV
 │
-├── docs/
-│   ├── banner.png
-│   ├── screenshots/
-│   └── architecture.md
-│
-├── scripts/
-│
-├── patches/
-│
+├── banner.png
+│  
 ├── README.md
 │
 └── LICENSE

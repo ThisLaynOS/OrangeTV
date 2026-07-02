@@ -178,7 +178,7 @@ Apache License 2.0
 
 # 👨‍💻 Author
 
-**Erick Bernardo Pereira da Silva**
+**Erick Bernardo**
 
 GitHub
 

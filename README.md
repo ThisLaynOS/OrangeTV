@@ -7,7 +7,9 @@
 <p align="center">
 Custom Android TV firmware for Orange Pi 3B (RK3566), developed through reverse engineering.
 </p>
-
+<b>
+  Download Image: https://github.com/ThisLaynOS/OrangeTV/releases
+</b>
 <p align="center">
 
 ![Android](https://img.shields.io/badge/Android-11-3DDC84?style=for-the-badge&logo=android)

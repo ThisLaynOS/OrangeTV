@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.png" alt="OrangeTV OS Banner" width="100%">
+  <img src="banner.png" alt="OrangeTV OS Banner" height="50%" width="50%">
 </p>
 
 <h1 align="center">🍊 OrangeTV OS</h1>
